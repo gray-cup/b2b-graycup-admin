@@ -216,6 +216,21 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
               Tech Solutions
             </Link>
 
+            {/* Consumer Product Requests */}
+            <Link
+              href="/consumer-product-requests"
+              onClick={closeSidebar}
+              className={`
+                block px-3 py-2 text-sm rounded-md transition-colors
+                ${pathname === '/consumer-product-requests'
+                  ? 'bg-ui-bg-subtle text-ui-fg-base font-medium'
+                  : 'text-ui-fg-subtle hover:text-ui-fg-base hover:bg-ui-bg-subtle-hover'
+                }
+              `}
+            >
+              Consumer Product Requests
+            </Link>
+
             {/* Vault Collapsible */}
             <div>
               <button
