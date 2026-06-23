@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
 
+export const revalidate = 60
+
 const tables = [
   { table: 'contact_submissions', label: 'Contact Submissions', href: '/vault/contact-submissions' },
   { table: 'quote_requests', label: 'Quote Requests', href: '/vault/quote-requests' },
@@ -32,7 +34,7 @@ export async function GET() {
       { counts },
       {
         headers: {
-          'Cache-Control': 'private, max-age=31536000, stale-while-revalidate=31536000',
+          'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
         },
       }
     )
